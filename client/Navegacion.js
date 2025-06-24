@@ -22,6 +22,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import lucesCasa from "./src/screen/home/lucesCasa";
 import puertasCasa from "./src/screen/home/puertasCasa";
 import detallesHome from "./src/screen/home/detallesHome";
+import luces from "./src/screen/home/luces";
+import puertas from "./src/screen/home/puertas";
 
 //llamar los screen de login
 import login from "./src/screen/login/login";
@@ -31,24 +33,34 @@ import register from "./src/screen/login/register";
 function MyStackHome() {
    return (
       <Stack.Navigator>
-           <Tab.Screen
-            name="home2" 
-            component={screenHome} 
+         <Stack.Screen
+            name="home2"
+            component={screenHome}
             options={{ headerShown: false }}
          />
-         <Tab.Screen
-            name="lucesCasa" 
-            component={lucesCasa} 
+         <Stack.Screen
+            name="lucesCasa"
+            component={lucesCasa}
             options={{ headerShown: false }}
          />
-         <Tab.Screen
-            name="puertasCasa" 
-            component={puertasCasa} 
+         <Stack.Screen
+            name="puertasCasa"
+            component={puertasCasa}
             options={{ headerShown: false }}
          />
-         <Tab.Screen
-            name="detallesHome" 
-            component={detallesHome} 
+         <Stack.Screen
+            name="detallesHome"
+            component={detallesHome}
+            options={{ headerShown: false }}
+         />
+         <Stack.Screen
+            name="luces"
+            component={luces}
+            options={{ headerShown: false }}
+         />
+         <Stack.Screen
+            name="puertas"
+            component={puertas}
             options={{ headerShown: false }}
          />
       </Stack.Navigator>
@@ -59,10 +71,10 @@ function MyTabs() {
    return (
       <Tab.Navigator>
          <Tab.Screen
-            name="home" 
-            component={MyStackHome} 
+            name="home"
+            component={MyStackHome}
             options={{
-               headerShown:false,
+               headerShown: false,
                tabBarIcon: ({ color, size }) => (
                   <AntDesign name="heart" size={size} color={color} />
                ),
@@ -73,10 +85,10 @@ function MyTabs() {
             }}
          />
          <Tab.Screen
-            name="About" 
-            component={screenAcercade} 
+            name="About"
+            component={screenAcercade}
             options={{
-               headerShown:false,
+               headerShown: false,
                tabBarIcon: ({ color, size }) => (
                   <Entypo name="info-with-circle" size={size} color={color} />
                ),
@@ -86,10 +98,10 @@ function MyTabs() {
             }}
          />
          <Tab.Screen
-            name="Settings" 
-            component={screenSetting} 
+            name="Settings"
+            component={screenSetting}
             options={{
-               headerShown:false,
+               headerShown: false,
                tabBarIcon: ({ color, size }) => (
                   <Ionicons name="settings-sharp" size={size} color={color} />
                ),
@@ -108,13 +120,13 @@ function ScreenLogin() {
    return (
       <Stack.Navigator>
          <Stack.Screen
-            name="login" 
-            component={login} 
+            name="login"
+            component={login}
             options={{ headerShown: false }}
          />
          <Stack.Screen
-            name="crearcuenta" 
-            component={register} 
+            name="crearcuenta"
+            component={register}
             options={{ headerShown: true }}
          />
       </Stack.Navigator>
@@ -123,11 +135,11 @@ function ScreenLogin() {
 
 export default function navigation() {
    const { isLogin } = useContext(estadologinGlobal);
-   
-   return(
+
+   return (
       <>
-            {isLogin ? <MyTabs /> : <ScreenLogin />}
-        </>
-     
-   ) 
+         {isLogin ? <MyTabs /> : <ScreenLogin />}
+      </>
+
+   )
 }

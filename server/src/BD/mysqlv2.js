@@ -124,4 +124,4 @@ async function login(tabla, data) {
 }
 
 
-module.exports = { uno, todos, agregar, eliminar, login };
+module.exports = { uno, todos, agregar, eliminar, login, actualizar };
