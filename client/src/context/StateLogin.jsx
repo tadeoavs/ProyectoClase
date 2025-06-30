@@ -33,15 +33,15 @@ export default function StateLogin({ children }) {
     };
   }
 
-  const deleteUser = async (id) => {
-    if (id === "") {
+  const deleteUser = async (data) => {
+    if (data.id === "") {
       return alert("ID no obtenida");
     }
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-      "id": id
+      "id": data.id
     });
 
     const requestOptions = {
@@ -54,7 +54,8 @@ export default function StateLogin({ children }) {
     try {
       const response = await fetch("http://localhost:4000/api/usuario/eliminar", requestOptions);
       const result = await response.json();
-      alert(result.body);
+      getDataUsers();
+      alert("Usuario eliminado correctamente");
     } catch (error) {
       console.error(error);
     };
