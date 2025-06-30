@@ -91,9 +91,9 @@ async function agregar(tabla, data) {
 }
 
 
-async function eliminar(tabla, id) {
-    const [result] = await conexion.query(`DELETE FROM ${tabla} WHERE id = ?`, [id]);
-    return result;
+async function eliminar(tabla, data) {
+    const [result] = await conexion.query(`DELETE FROM ${tabla} WHERE id = ?`, data.id);
+    return [result];
 }
 
 async function login(tabla, data) {

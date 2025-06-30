@@ -18,6 +18,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 
+
 // llamar los creen hjos home
 import lucesCasa from "./src/screen/home/lucesCasa";
 import puertasCasa from "./src/screen/home/puertasCasa";
@@ -28,6 +29,7 @@ import puertas from "./src/screen/home/puertas";
 //llamar los screen de login
 import login from "./src/screen/login/login";
 import register from "./src/screen/login/register";
+import ScreenUsers from "./src/screen/users/ScreenUsers";
 
 
 function MyStackHome() {
@@ -80,6 +82,20 @@ function MyTabs() {
                ),
                tabBarLabelPosition: 'beside-icon',
                tabBarBadge: 67,
+               color: 'white',
+               backgroundColor: 'black',
+            }}
+         />
+         <Tab.Screen
+            name="Users"
+            component={ScreenUsers}
+            options={{
+               title: 'Usuarios',
+               headerShown: false,
+               tabBarIcon: ({ color, size }) => (
+                  <AntDesign name="user" size={24} color="black" />
+               ),
+               tabBarLabelPosition: 'beside-icon',
                color: 'white',
                backgroundColor: 'black',
             }}
